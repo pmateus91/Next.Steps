@@ -1,9 +1,10 @@
-﻿using System;
+﻿using Next.Steps.Domain.Interfaces;
+using System;
 using System.Collections.Generic;
 
 namespace Next.Steps.Domain.Entities
 {
-    public sealed class Person
+    public class Person : IEntity
     {
         public int Id { get; set; }
         public string FirstName { get; set; }
