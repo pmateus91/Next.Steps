@@ -1,0 +1,17 @@
+D:\Next.Steps\Next.Steps.Application\bin\Debug\netcoreapp3.1\Next.Steps.Application.deps.json
+D:\Next.Steps\Next.Steps.Application\bin\Debug\netcoreapp3.1\Next.Steps.Application.dll
+D:\Next.Steps\Next.Steps.Application\bin\Debug\netcoreapp3.1\Next.Steps.Application.pdb
+D:\Next.Steps\Next.Steps.Application\obj\Debug\netcoreapp3.1\Next.Steps.Application.csprojAssemblyReference.cache
+D:\Next.Steps\Next.Steps.Application\obj\Debug\netcoreapp3.1\Next.Steps.Application.AssemblyInfoInputs.cache
+D:\Next.Steps\Next.Steps.Application\obj\Debug\netcoreapp3.1\Next.Steps.Application.AssemblyInfo.cs
+D:\Next.Steps\Next.Steps.Application\obj\Debug\netcoreapp3.1\Next.Steps.Application.csproj.CoreCompileInputs.cache
+D:\Next.Steps\Next.Steps.Application\obj\Debug\netcoreapp3.1\Next.Steps.Application.dll
+D:\Next.Steps\Next.Steps.Application\obj\Debug\netcoreapp3.1\Next.Steps.Application.pdb
+E:\Next.Steps\Next.Steps.Application\bin\Debug\netcoreapp3.1\Next.Steps.Application.deps.json
+E:\Next.Steps\Next.Steps.Application\bin\Debug\netcoreapp3.1\Next.Steps.Application.dll
+E:\Next.Steps\Next.Steps.Application\bin\Debug\netcoreapp3.1\Next.Steps.Application.pdb
+E:\Next.Steps\Next.Steps.Application\obj\Debug\netcoreapp3.1\Next.Steps.Application.AssemblyInfoInputs.cache
+E:\Next.Steps\Next.Steps.Application\obj\Debug\netcoreapp3.1\Next.Steps.Application.AssemblyInfo.cs
+E:\Next.Steps\Next.Steps.Application\obj\Debug\netcoreapp3.1\Next.Steps.Application.csproj.CoreCompileInputs.cache
+E:\Next.Steps\Next.Steps.Application\obj\Debug\netcoreapp3.1\Next.Steps.Application.dll
+E:\Next.Steps\Next.Steps.Application\obj\Debug\netcoreapp3.1\Next.Steps.Application.pdb
