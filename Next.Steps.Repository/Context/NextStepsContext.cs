@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Next.Steps.Domain.Entities;
+using Next.Steps.Domain.ValueTypes;
 
 namespace Next.Steps.Infrastructure.Context
 {
@@ -25,23 +26,14 @@ namespace Next.Steps.Infrastructure.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.UseIdentityColumns();
-
             modelBuilder.HasDefaultSchema("NextSteps");
 
             modelBuilder.Entity<Person>(entity =>
             {
                 entity.ToTable("Person", schema: "NextSteps");
-                entity.HasKey(x => x.Id);
+                entity.OwnsOne(h => h.Hobbies);
             });
-            
-            modelBuilder.Entity<Person>().OwnsMany(
-                p => p.Hobbies, a =>
-                {
-                    a.WithOwner().HasForeignKey("PersonId");
-                    a.Property<int>("Id");
-                    a.HasKey("Id");
-                });
         }
     }
+
 }
