@@ -4,11 +4,11 @@ namespace Next.Steps.Domain.Interfaces.Services
 {
     public interface IServiceBase<TEntity> where TEntity : class
     {
-        void Add(TEntity obj);
+        bool Add(TEntity obj);
 
-        void Update(TEntity obj);
+        bool Update(TEntity obj);
 
-        void Remove(TEntity obj);
+        bool Remove(int id);
 
         IEnumerable<TEntity> GetAll();
 
