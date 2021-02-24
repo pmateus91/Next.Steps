@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 
-namespace Next.Steps.Domain.Interfaces.Repositories
+namespace Next.Steps.Domain.Interfaces.Services
 {
-    public interface IRepositoryBase<TEntity> where TEntity : class
+    public interface IServiceBase<TEntity> where TEntity : class
     {
         void Add(TEntity obj);
 
