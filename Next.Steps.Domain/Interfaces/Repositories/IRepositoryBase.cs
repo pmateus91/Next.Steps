@@ -13,5 +13,7 @@ namespace Next.Steps.Domain.Interfaces.Repositories
         IEnumerable<TEntity> GetAll();
 
         TEntity GetById(int id);
+
+        IEnumerable<TEntity> Search(string firstname, string lastname);
     }
 }
