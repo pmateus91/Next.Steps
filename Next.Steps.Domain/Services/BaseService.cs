@@ -1,6 +1,5 @@
 ﻿using Next.Steps.Domain.Interfaces.Repositories;
 using Next.Steps.Domain.Interfaces.Services;
-using System;
 using System.Collections.Generic;
 
 namespace Next.Steps.Domain.Services
@@ -16,15 +15,8 @@ namespace Next.Steps.Domain.Services
 
         public bool Add(TEntity obj)
         {
-            if (obj != null)
-            {
-                _repo.Add(obj);
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            _repo.Add(obj);
+            return true;
         }
 
         public IEnumerable<TEntity> GetAll()
@@ -39,28 +31,14 @@ namespace Next.Steps.Domain.Services
 
         public bool Remove(TEntity obj)
         {
-            if (obj != null)
-            {
-                _repo.Remove(obj);
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            _repo.Remove(obj);
+            return true;
         }
 
         public bool Update(TEntity obj)
         {
-            if (obj != null)
-            {
-                _repo.Update(obj);
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            _repo.Update(obj);
+            return true;
         }
     }
 }
