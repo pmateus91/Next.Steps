@@ -7,18 +7,18 @@ using Next.Steps.Domain.Interfaces.Services;
 
 namespace Next.Steps.Application.CommandHandler
 {
-    public class PersonAddHandler : RequestHandler<PersonAddCommand>
+    public class PersonCreateHandler : RequestHandler<PersonCreateCommand>
     {
         private readonly IServicePerson _servicePerson;
         private readonly IMapper _mapper;
 
-        public PersonAddHandler(IServicePerson personService, IMapper mapper)
+        public PersonCreateHandler(IServicePerson personService, IMapper mapper)
         {
             _servicePerson = personService;
             _mapper = mapper;
         }
 
-        protected override void Handle(PersonAddCommand request)
+        protected override void Handle(PersonCreateCommand request)
         {
             var person = _mapper.Map<PersonWriteDto, Person>(request.Person);
             _servicePerson.Add(person);

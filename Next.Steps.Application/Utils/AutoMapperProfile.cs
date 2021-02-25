@@ -18,8 +18,14 @@ namespace Next.Steps.Application.Utils
                 .ForMember(p => p.BirthDate, opt =>
                 opt.MapFrom(src => (DateTime)src.BirthDate));
 
-            CreateMap<Hobby, HobbyDto>().ReverseMap();
-            CreateMap<HobbyDto, Hobby>();
+            CreateMap<PersonUpdateDto, Person>()
+                .ForMember(p => p.BirthDate, opt =>
+                opt.MapFrom(src => (DateTime)src.BirthDate));
+
+            CreateMap<Hobby, HobbyDto>();
+
+            CreateMap<HobbyDto, Hobby>()
+                .ForMember(p => p.PersonId, opt => opt.Ignore());
         }
     }
 }

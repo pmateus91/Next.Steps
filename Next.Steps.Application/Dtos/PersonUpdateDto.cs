@@ -15,7 +15,7 @@ namespace Next.Steps.Application.Dtos
 
         public string Profession { get; set; }
 
-        public DateTime? Birthdate { get; set; }
+        public DateTime? BirthDate { get; set; }
 
         public string Email { get; set; }
 

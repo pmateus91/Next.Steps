@@ -3,7 +3,7 @@ using Next.Steps.Application.Dtos;
 
 namespace Next.Steps.Application.Command
 {
-    public class PersonAddCommand : IRequest
+    public class PersonCreateCommand : IRequest
     {
         public PersonWriteDto Person;
     }
