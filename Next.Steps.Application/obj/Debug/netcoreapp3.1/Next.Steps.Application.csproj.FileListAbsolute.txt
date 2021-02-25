@@ -7,15 +7,3 @@ D:\Next.Steps\Next.Steps.Application\obj\Debug\netcoreapp3.1\Next.Steps.Applicat
 D:\Next.Steps\Next.Steps.Application\obj\Debug\netcoreapp3.1\Next.Steps.Application.csproj.CoreCompileInputs.cache
 D:\Next.Steps\Next.Steps.Application\obj\Debug\netcoreapp3.1\Next.Steps.Application.dll
 D:\Next.Steps\Next.Steps.Application\obj\Debug\netcoreapp3.1\Next.Steps.Application.pdb
-E:\Next.Steps\Next.Steps.Application\bin\Debug\netcoreapp3.1\Next.Steps.Application.deps.json
-E:\Next.Steps\Next.Steps.Application\bin\Debug\netcoreapp3.1\Next.Steps.Application.dll
-E:\Next.Steps\Next.Steps.Application\bin\Debug\netcoreapp3.1\Next.Steps.Application.pdb
-E:\Next.Steps\Next.Steps.Application\obj\Debug\netcoreapp3.1\Next.Steps.Application.AssemblyInfoInputs.cache
-E:\Next.Steps\Next.Steps.Application\obj\Debug\netcoreapp3.1\Next.Steps.Application.AssemblyInfo.cs
-E:\Next.Steps\Next.Steps.Application\obj\Debug\netcoreapp3.1\Next.Steps.Application.csproj.CoreCompileInputs.cache
-E:\Next.Steps\Next.Steps.Application\obj\Debug\netcoreapp3.1\Next.Steps.Application.dll
-E:\Next.Steps\Next.Steps.Application\obj\Debug\netcoreapp3.1\Next.Steps.Application.pdb
-E:\Next.Steps\Next.Steps.Application\obj\Debug\netcoreapp3.1\Next.Steps.Application.csprojAssemblyReference.cache
-E:\Next.Steps\Next.Steps.Application\bin\Debug\netcoreapp3.1\Next.Steps.Domain.dll
-E:\Next.Steps\Next.Steps.Application\bin\Debug\netcoreapp3.1\Next.Steps.Domain.pdb
-E:\Next.Steps\Next.Steps.Application\obj\Debug\netcoreapp3.1\Next.Steps.Application.csproj.CopyComplete
