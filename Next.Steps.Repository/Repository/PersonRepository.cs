@@ -23,6 +23,19 @@ namespace Next.Steps.Infrastructure.Repository
                 .Include(p => p.Hobbies);
         }
 
+        public override IEnumerable<Person> GetAll()
+        {
+            return _nextStepsContext.Persons.Include(p => p.Hobbies).ToList();
+        }
+
+        public override Person GetById(int id)
+        {
+            return _nextStepsContext.Persons
+             .Where(p => p.Id == id)
+             .Include(p => p.Hobbies)
+             .FirstOrDefault();
+        }
+
         public bool Remove(int id)
         {
             try
