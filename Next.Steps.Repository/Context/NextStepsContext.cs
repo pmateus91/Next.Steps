@@ -26,14 +26,13 @@ namespace Next.Steps.Infrastructure.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.HasDefaultSchema("NextSteps");
-
-            modelBuilder.Entity<Person>(entity =>
-            {
-                entity.ToTable("Person", schema: "NextSteps");
-                entity.OwnsOne(h => h.Hobbies);
-            });
+            modelBuilder
+                .HasDefaultSchema("NextSteps")
+                .Entity<Person>()
+                .HasMany(b => b.Hobbies)
+                .WithOne(p => p.Person)
+                .HasForeignKey(p => p.PersonId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
-
 }

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "mWWqlYD0khXeHWyJaitsdgd4sfKQeWRkNckNAnhUy5nd40adZtjrgk8n0RJnGKaB5j4S9/ipmYgHhoeq4Bu0zg==",
+  "dgSpecHash": "6jQxvduYRatDNdyRUw+TRKW1lI0gB3lO1LxKQ4pjDHZ/Vth22xG72LkzkvZdDsuF1rz/LLwumXvw3uey3maj7A==",
   "success": true,
   "projectFilePath": "E:\\Next.Steps\\Next.Steps.Repository\\Next.Steps.Infrastructure.csproj",
   "expectedPackageFiles": [
@@ -36,6 +36,7 @@
     "C:\\Users\\pedro\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
     "C:\\Users\\pedro\\.nuget\\packages\\newtonsoft.json\\10.0.1\\newtonsoft.json.10.0.1.nupkg.sha512",
     "C:\\Users\\pedro\\.nuget\\packages\\runtime.native.system\\4.3.0\\runtime.native.system.4.3.0.nupkg.sha512",
+    "C:\\Users\\pedro\\.nuget\\packages\\serilog\\2.10.0\\serilog.2.10.0.nupkg.sha512",
     "C:\\Users\\pedro\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",
     "C:\\Users\\pedro\\.nuget\\packages\\system.collections.concurrent\\4.3.0\\system.collections.concurrent.4.3.0.nupkg.sha512",
     "C:\\Users\\pedro\\.nuget\\packages\\system.collections.immutable\\5.0.0\\system.collections.immutable.5.0.0.nupkg.sha512",

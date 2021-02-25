@@ -7,5 +7,8 @@ namespace Next.Steps.Domain.Entities
         public int Id { get; set; }
         public string Name { get; set; }
         public string Category { get; set; }
+
+        public int PersonId { get; set; }
+        public Person Person { get; set; }
     }
 }

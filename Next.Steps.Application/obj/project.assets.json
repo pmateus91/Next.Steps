@@ -41,6 +41,16 @@
         "runtime": {
           "lib/netcoreapp2.0/_._": {}
         }
+      },
+      "Next.Steps.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/Next.Steps.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Next.Steps.Domain.dll": {}
+        }
       }
     }
   },
@@ -201,12 +211,18 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "Next.Steps.Domain/1.0.0": {
+      "type": "project",
+      "path": "../Next.Steps.Domain/Next.Steps.Domain.csproj",
+      "msbuildProject": "../Next.Steps.Domain/Next.Steps.Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
       "AutoMapper >= 10.1.1",
-      "MediatR >= 9.0.0"
+      "MediatR >= 9.0.0",
+      "Next.Steps.Domain >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -235,7 +251,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
-          "projectReferences": {}
+          "projectReferences": {
+            "E:\\Next.Steps\\Next.Steps.Domain\\Next.Steps.Domain.csproj": {
+              "projectPath": "E:\\Next.Steps\\Next.Steps.Domain\\Next.Steps.Domain.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
