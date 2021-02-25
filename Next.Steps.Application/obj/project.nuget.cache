@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "1qh5zcQ+dl3dpzPj7zsHPni7+fsBsqgmPC8sJnIfIBfmDQBlptcxv1rceFQZxxqzyQDrGl5cL6c0VBzUWniEgg==",
+  "dgSpecHash": "nnFZXaTcMT7ZmQAdsRRKKGYGjv1LXNsBzcHGFAtTn+9BedtEevdq8e3/TSyoEUbI/qoHY7/m8YrCZsjuFcaeAQ==",
   "success": true,
   "projectFilePath": "E:\\Next.Steps\\Next.Steps.Application\\Next.Steps.Application.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\pedro\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
+    "C:\\Users\\pedro\\.nuget\\packages\\mediatr\\9.0.0\\mediatr.9.0.0.nupkg.sha512",
+    "C:\\Users\\pedro\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Users\\pedro\\.nuget\\packages\\system.reflection.emit\\4.7.0\\system.reflection.emit.4.7.0.nupkg.sha512"
+  ],
   "logs": []
 }
