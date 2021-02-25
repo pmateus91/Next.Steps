@@ -18,12 +18,13 @@ namespace Next.Steps.API.Controllers
             _mediator = mediator;
         }
 
-        [HttpGet]
-        [Route("[Action]")]
         /// <summary>
         /// Get All Persons
         /// </summary>
         /// <returns></returns>
+        [HttpGet]
+        [Route("[Action]")]
+
         public ActionResult<IEnumerable<PersonReadDto>> GetAll()
         {
             var query = new PersonGetAllQuery();
@@ -39,12 +40,12 @@ namespace Next.Steps.API.Controllers
             }
         }
 
-        [HttpGet("{id}")]
         /// <summary>
         /// Get a Person by ID
         /// </summary>
         /// <param name="id">1</param>
-        /// <returns></returns
+        /// <returns></returns>
+        [HttpGet("{id}")]
         public ActionResult<PersonReadDto> GetById(int id)
         {
             var query = new PersonGetByIdQuery
