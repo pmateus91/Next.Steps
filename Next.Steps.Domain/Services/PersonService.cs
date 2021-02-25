@@ -14,16 +14,14 @@ namespace Next.Steps.Domain.Services
             _repo = repo;
         }
 
+        public bool Remove(int id)
+        {
+            return _repo.Remove(id);
+        }
+
         public IEnumerable<Person> Search(string firstname, string lastname)
         {
-            if (firstname == "" || lastname == "")
-            {
-                return null;
-            }
-            else
-            {
-                return _repo.Search(firstname, lastname);
-            }
+            return _repo.Search(firstname, lastname);
         }
     }
 }
