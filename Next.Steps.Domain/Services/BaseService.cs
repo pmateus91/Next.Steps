@@ -7,7 +7,7 @@ namespace Next.Steps.Domain.Services
 {
     public class BaseService<TEntity> : IServiceBase<TEntity> where TEntity : class
     {
-        private IRepositoryBase<TEntity> _repo;
+        private readonly IRepositoryBase<TEntity> _repo;
 
         public BaseService(IRepositoryBase<TEntity> repo)
         {
@@ -37,11 +37,11 @@ namespace Next.Steps.Domain.Services
             return _repo.GetById(id);
         }
 
-        public bool Remove(int id)
+        public bool Remove(TEntity obj)
         {
-            if (id > 0)
+            if (obj != null)
             {
-                _repo.Remove(id);
+                _repo.Remove(obj);
                 return true;
             }
             else
@@ -60,18 +60,6 @@ namespace Next.Steps.Domain.Services
             else
             {
                 return false;
-            }
-        }
-
-        public IEnumerable<TEntity> Search(string firstname, string lastname)
-        {
-            if (firstname == "" || lastname == "")
-            {
-                return null;
-            }
-            else
-            {
-                return _repo.Search(firstname, lastname);
             }
         }
     }

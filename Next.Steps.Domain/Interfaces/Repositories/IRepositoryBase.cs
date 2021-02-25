@@ -8,12 +8,10 @@ namespace Next.Steps.Domain.Interfaces.Repositories
 
         bool Update(TEntity obj);
 
-        bool Remove(int id);
+        bool Remove(TEntity obj);
 
         IEnumerable<TEntity> GetAll();
 
         TEntity GetById(int id);
-
-        IEnumerable<TEntity> Search(string firstname, string lastname);
     }
 }
