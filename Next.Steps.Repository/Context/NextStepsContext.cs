@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Next.Steps.Domain.Entities;
-using Next.Steps.Domain.ValueTypes;
 
 namespace Next.Steps.Infrastructure.Context
 {
@@ -24,15 +23,15 @@ namespace Next.Steps.Infrastructure.Context
             }
         }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder
-                .HasDefaultSchema("NextSteps")
-                .Entity<Person>()
-                .HasMany(b => b.Hobbies)
-                .WithOne(p => p.Person)
-                .HasForeignKey(p => p.PersonId)
-                .OnDelete(DeleteBehavior.Cascade);
-        }
+        //protected override void OnModelCreating(ModelBuilder modelBuilder)
+        //{
+        //    modelBuilder
+        //        .HasDefaultSchema("NextSteps")
+        //        .Entity<Person>()
+        //        .HasMany(b => b.Hobbies)
+        //        .WithOne(p => p.Person)
+        //        .HasForeignKey(p => p.PersonId)
+        //        .OnDelete(DeleteBehavior.Cascade);
+        //}
     }
 }
