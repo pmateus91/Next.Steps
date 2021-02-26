@@ -129,8 +129,8 @@ namespace Next.Steps.API.Controllers
         /// <summary>
         /// Search a Person by First Name or Last Name
         /// </summary>
-        /// <param name="firstName">Carlos</param>
-        /// <param name="lastName">Ferreira</param>
+        /// <param name="firstName"></param>
+        /// <param name="lastName"></param>
         /// <returns></returns>
         [HttpGet("/search")]
         public ActionResult Search(string firstName, string lastName)
