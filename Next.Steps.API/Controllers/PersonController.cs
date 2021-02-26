@@ -4,6 +4,7 @@ using Next.Steps.Application.Command;
 using Next.Steps.Application.Dtos;
 using Next.Steps.Application.Query;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Next.Steps.API.Controllers
 {
@@ -23,21 +24,12 @@ namespace Next.Steps.API.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        [Route("[Action]")]
-
-        public ActionResult<IEnumerable<PersonReadDto>> GetAll()
+        [Route("GetAll")]
+        public async Task<IActionResult> GetAllAsync()
         {
             var query = new PersonGetAllQuery();
-            var response = _mediator.Send(query).Result;
-
-            if (response == null)
-            {
-                return NotFound();
-            }
-            else
-            {
-                return Ok(response);
-            }
+            var response = await _mediator.Send(query);
+            return Ok(response);
         }
 
         /// <summary>
@@ -46,59 +38,51 @@ namespace Next.Steps.API.Controllers
         /// <param name="id">1</param>
         /// <returns></returns>
         [HttpGet("{id}")]
-        public ActionResult<PersonReadDto> GetById(int id)
+        public async Task<IActionResult> GetByIdAsync(int id)
         {
             var query = new PersonGetByIdQuery
             {
                 Id = id
             };
 
-            var response = _mediator.Send(query).Result;
-
-            if (response == null)
-            {
-                return NotFound();
-            }
-            else
-            {
-                return Ok(response);
-            }
+            var response = await _mediator.Send(query);
+            return Ok(response);
         }
 
         /// <summary>
         /// Create a Person
         /// </summary>
-        /// <param name="p">Pessoa</param>
+        /// <param name="p">Person</param>
         /// <returns></returns>
         [HttpPost]
-        public ActionResult Create(PersonWriteDto p)
+        [Route("Create")]
+        public async Task<IActionResult> CreateAsync(PersonWriteDto p)
         {
             var command = new PersonCreateCommand
             {
                 Person = p
             };
 
-            var response = _mediator.Send(command);
-
-            return Ok(response);
+            await _mediator.Send(command);
+            return NoContent();
         }
 
         /// <summary>
         /// Update a Person
         /// </summary>
-        /// <param name="p"></param>
+        /// <param name="obj"></param>
         /// <returns></returns>
         [HttpPut]
-        public ActionResult Update(PersonUpdateDto p)
+        [Route("Update")]
+        public async Task<IActionResult> UpdateAsync(PersonUpdateDto obj)
         {
             var command = new PersonUpdateCommand
             {
-                Person = p
+                Person = obj
             };
 
-            var status = _mediator.Send(command);
-
-            return Ok(status);
+            await _mediator.Send(command);
+            return NoContent();
         }
 
         /// <summary>
@@ -107,23 +91,15 @@ namespace Next.Steps.API.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpDelete("{id}")]
-        public ActionResult Remove(int id)
+        public async Task<IActionResult> RemoveAsync(int id)
         {
             var command = new PersonRemoveCommand
             {
                 Id = id
             };
 
-            var status = _mediator.Send(command).Result;
-
-            if (status)
-            {
-                return Ok();
-            }
-            else
-            {
-                return NotFound();
-            }
+            await _mediator.Send(command);
+            return NotFound();
         }
 
         /// <summary>
@@ -132,8 +108,8 @@ namespace Next.Steps.API.Controllers
         /// <param name="firstName"></param>
         /// <param name="lastName"></param>
         /// <returns></returns>
-        [HttpGet("/search")]
-        public ActionResult Search(string firstName, string lastName)
+        [HttpGet("/Search")]
+        public async Task<IActionResult> SearchAsync(string firstName, string lastName)
         {
             var query = new PersonSearchQuery
             {
@@ -141,16 +117,8 @@ namespace Next.Steps.API.Controllers
                 Lastname = lastName
             };
 
-            var response = _mediator.Send(query);
-
-            if (response == null)
-            {
-                return NotFound();
-            }
-            else
-            {
-                return Ok(response);
-            }
+            var response = await _mediator.Send(query);
+            return Ok(response);
         }
     }
 }
