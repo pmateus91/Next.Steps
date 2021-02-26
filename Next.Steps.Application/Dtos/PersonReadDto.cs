@@ -16,6 +16,6 @@ namespace Next.Steps.Application.Dtos
 
         public string Email { get; set; }
 
-        public List<HobbyDto> Hobbies { get; set; }
+        public List<HobbyReadDto> Hobbies { get; set; }
     }
 }

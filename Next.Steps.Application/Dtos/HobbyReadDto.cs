@@ -1,6 +1,6 @@
 ﻿namespace Next.Steps.Application.Dtos
 {
-    public class HobbyDto
+    public class HobbyReadDto
     {
         public int Id { get; set; }
         public string Name { get; set; }

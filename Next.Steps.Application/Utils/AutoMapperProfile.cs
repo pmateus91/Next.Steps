@@ -14,7 +14,6 @@ namespace Next.Steps.Application.Utils
                 opt.MapFrom(src => src.BirthDate.ToString("yyyy-MM-dd")));
 
             CreateMap<PersonWriteDto, Person>()
-                .ForMember(p => p.Id, opt => opt.Ignore())
                 .ForMember(p => p.BirthDate, opt =>
                 opt.MapFrom(src => (DateTime)src.BirthDate));
 
@@ -22,10 +21,12 @@ namespace Next.Steps.Application.Utils
                 .ForMember(p => p.BirthDate, opt =>
                 opt.MapFrom(src => (DateTime)src.BirthDate));
 
-            CreateMap<Hobby, HobbyDto>();
+            CreateMap<Hobby, HobbyReadDto>();
 
-            CreateMap<HobbyDto, Hobby>()
+            CreateMap<HobbyWriteDto, Hobby>()
                 .ForMember(p => p.PersonId, opt => opt.Ignore());
+
+            CreateMap<HobbyUpdateDto, Hobby>();
         }
     }
 }
