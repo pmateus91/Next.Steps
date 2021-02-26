@@ -1,6 +1,8 @@
-﻿using MediatR;
+﻿using AutoMapper;
+using MediatR;
 using Next.Steps.Application.Dtos;
 using Next.Steps.Application.Query;
+using Next.Steps.Domain.Entities;
 using Next.Steps.Domain.Interfaces.Services;
 using System.Collections.Generic;
 
@@ -9,44 +11,17 @@ namespace Next.Steps.Application.QueryHandler
     public class PersonGetAllHandler : RequestHandler<PersonGetAllQuery, IEnumerable<PersonReadDto>>
     {
         private readonly IServicePerson _personService;
+        private readonly IMapper _mapper;
 
-        public PersonGetAllHandler(IServicePerson personService)
+        public PersonGetAllHandler(IServicePerson personService, IMapper mapper)
         {
             _personService = personService;
+            _mapper = mapper;
         }
 
         protected override IEnumerable<PersonReadDto> Handle(PersonGetAllQuery request)
         {
-            var list = _personService.GetAll();
-
-            var personList = new List<PersonReadDto>();
-
-            foreach (var item in list)
-            {
-                var hobList = new List<HobbyDto>();
-
-                foreach (var h in item.Hobbies)
-                {
-                    hobList.Add(new HobbyDto
-                    {
-                        Id = h.Id,
-                        Name = h.Name,
-                        Category = h.Category
-                    });
-                }
-
-                personList.Add(new PersonReadDto
-                {
-                    Id = item.Id,
-                    FirstName = item.FirstName,
-                    LastName = item.LastName,
-                    Profession = item.Profession,
-                    Birthdate = item.BirthDate.ToString(),
-                    Email = item.Email,
-                    Hobbies = hobList
-                });
-            }
-            return personList;
+            throw new System.NotImplementedException();
         }
     }
 }
