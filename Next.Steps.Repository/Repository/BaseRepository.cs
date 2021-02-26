@@ -35,7 +35,8 @@ namespace Next.Steps.Infrastructure.Repository
 
         public virtual bool Update(TEntity obj)
         {
-            _nextStepsContext.Entry(obj).State = EntityState.Modified;
+            //_nextStepsContext.Entry(obj).State = EntityState.Modified;
+            _nextStepsContext.Update(obj);
             _nextStepsContext.SaveChanges();
             return true;
         }
