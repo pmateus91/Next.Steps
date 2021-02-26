@@ -21,7 +21,15 @@ namespace Next.Steps.Application.QueryHandler
 
         protected override IEnumerable<PersonReadDto> Handle(PersonGetAllQuery request)
         {
-            throw new System.NotImplementedException();
+            var personList = _personService.GetAll();
+            if (personList != null)
+            {
+                return _mapper.Map<IEnumerable<Person>, IEnumerable<PersonReadDto>>(personList);
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 }
