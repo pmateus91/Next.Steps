@@ -49,7 +49,6 @@ namespace Next.Steps.API
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "NextSteps", Version = "v1" });
-
                 var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
                 c.IncludeXmlComments(xmlPath);
@@ -81,6 +80,10 @@ namespace Next.Steps.API
             {
                 endpoints.MapControllers();
             });
+
+            using var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope();
+            using var context = serviceScope.ServiceProvider.GetService<NextStepsContext>();
+            context.Database.Migrate();
         }
     }
 }

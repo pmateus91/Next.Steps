@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using Next.Steps.Application.Command;
 using Next.Steps.Application.Dtos;
 using Next.Steps.Application.Query;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Next.Steps.API.Controllers

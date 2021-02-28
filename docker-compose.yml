@@ -1,0 +1,47 @@
+﻿version: '3.7'
+
+services:
+  elasticsearch:
+   container_name: elasticsearch
+   image: docker.elastic.co/elasticsearch/elasticsearch:7.9.2
+   ports:
+    - 9200:9200
+   volumes:
+    - ./elasticsearch-volume:/usr/share/elasticsearch/data
+   environment:
+    - xpack.monitoring.enabled=true
+    - xpack.watcher.enabled=false
+    - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    - discovery.type=single-node
+
+  kibana:
+   container_name: kibana
+   image: docker.elastic.co/kibana/kibana:7.9.2
+   ports: 
+    - 5601:5601
+   depends_on: 
+    - elasticsearch
+   environment: 
+    - ELASTICSEARCH_URL=http://localhost:9200
+
+  ms-sql-server:
+   image: mcr.microsoft.com/mssql/server:latest
+   volumes:
+    - ./sql-volume:/var/opt/mssql/data
+   environment:
+    ACCEPT_EULA: 'Y'
+    SA_PASSWORD: 'Password123'
+    MSSQL_PID: 'Developer'
+   ports:
+    - '5000:1433'
+  
+  nextsteps:
+   build: .
+   restart: always
+   environment:
+    ConnectionString: 'Server=ms-sql-server;Database=NextSteps;User=sa;Password=Password123'
+   ports:
+    - '8080:80'
+   depends_on: 
+    - ms-sql-server
+    - elasticsearch

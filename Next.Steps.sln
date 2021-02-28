@@ -11,7 +11,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Next.Steps.Infrastructure",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Next.Steps.Tests", "Next.Steps.Tests\Next.Steps.Tests.csproj", "{A2DF81C6-CC57-4AC7-90D5-4A0D319E6392}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Next.Steps.API", "Next.Steps.API\Next.Steps.API.csproj", "{FF70AF75-BF4D-439C-BF38-2D507F6EF166}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Next.Steps.API", "Next.Steps.API\Next.Steps.API.csproj", "{FF70AF75-BF4D-439C-BF38-2D507F6EF166}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{62412F0C-F4B6-4185-AD0D-571DA9FA10A0}"
+	ProjectSection(SolutionItems) = preProject
+		.dockerignore = .dockerignore
+		.gitignore = .gitignore
+		docker-compose.yml = docker-compose.yml
+		Dockerfile = Dockerfile
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

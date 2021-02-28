@@ -362,5 +362,9 @@ MigrationBackup/
 FodyWeavers.xsd
 
 ## Excluir documentação XML da API
-
 Next.Steps.API.xml
+
+## Excluir volumes docker
+sql-volume/
+elasticsearch-volume/
+
