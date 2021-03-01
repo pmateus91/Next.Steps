@@ -25,6 +25,7 @@ services:
     - ELASTICSEARCH_URL=http://localhost:9200
 
   ms-sql-server:
+   container_name: mssql
    image: mcr.microsoft.com/mssql/server:latest
    volumes:
     - ./sql-volume:/var/opt/mssql/data
@@ -36,6 +37,7 @@ services:
     - '5000:1433'
   
   nextsteps:
+   container_name: nextstepsAPI
    build: .
    restart: always
    environment:
