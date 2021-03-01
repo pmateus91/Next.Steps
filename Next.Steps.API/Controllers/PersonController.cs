@@ -38,12 +38,14 @@ namespace Next.Steps.API.Controllers
         /// </summary>
         /// <param name="id">1</param>
         /// <returns></returns>
-        [HttpGet("{id}")]
+        [HttpGet]
+        [Route("GetById/{id}")]
         public async Task<IActionResult> GetByIdAsync(int id)
         {
             if (id <= 0)
             {
                 Log.Error("Id invalido: " + id);
+                return BadRequest();
             }
             var query = new PersonGetByIdQuery
             {
@@ -51,7 +53,14 @@ namespace Next.Steps.API.Controllers
             };
 
             var response = await _mediator.Send(query);
-            return Ok(response);
+            if (response == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                return Ok(response);
+            }
         }
 
         /// <summary>
@@ -103,21 +112,30 @@ namespace Next.Steps.API.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        [HttpDelete("{id}")]
+        [HttpDelete]
+        [Route("Remove/{id}")]
         public async Task<IActionResult> RemoveAsync(int id)
         {
             if (id <= 0)
             {
                 Log.Error("Id invalido: " + id);
+                return BadRequest();
             }
             var command = new PersonRemoveCommand
             {
                 Id = id
             };
 
-            await _mediator.Send(command);
+            var result = await _mediator.Send(command);
             Log.Information("Removido com sucesso.");
-            return NotFound();
+            if (result)
+            {
+                return Ok();
+            }
+            else
+            {
+                return NotFound();
+            }
         }
 
         /// <summary>
