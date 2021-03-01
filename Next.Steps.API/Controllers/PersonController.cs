@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Next.Steps.Application.Command;
 using Next.Steps.Application.Dtos;
 using Next.Steps.Application.Query;
+using Serilog;
 using System.Threading.Tasks;
 
 namespace Next.Steps.API.Controllers
@@ -28,6 +29,7 @@ namespace Next.Steps.API.Controllers
         {
             var query = new PersonGetAllQuery();
             var response = await _mediator.Send(query);
+            Log.Information("Get All executado com sucesso.");
             return Ok(response);
         }
 
@@ -39,6 +41,10 @@ namespace Next.Steps.API.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetByIdAsync(int id)
         {
+            if (id <= 0)
+            {
+                Log.Error("Id invalido: " + id);
+            }
             var query = new PersonGetByIdQuery
             {
                 Id = id
@@ -57,12 +63,16 @@ namespace Next.Steps.API.Controllers
         [Route("Create")]
         public async Task<IActionResult> CreateAsync(PersonWriteDto p)
         {
-            var command = new PersonCreateCommand
+            if (p != null)
             {
-                Person = p
-            };
-
-            await _mediator.Send(command);
+                var command = new PersonCreateCommand
+                {
+                    Person = p
+                };
+                await _mediator.Send(command);
+                Log.Information("Criado com sucesso.");
+            }
+            Log.Error("Erro: sem objecto");
             return NoContent();
         }
 
@@ -75,12 +85,16 @@ namespace Next.Steps.API.Controllers
         [Route("Update")]
         public async Task<IActionResult> UpdateAsync(PersonUpdateDto obj)
         {
-            var command = new PersonUpdateCommand
+            if (obj != null)
             {
-                Person = obj
-            };
-
-            await _mediator.Send(command);
+                var command = new PersonUpdateCommand
+                {
+                    Person = obj
+                };
+                Log.Information("Update realizado com sucesso.");
+                await _mediator.Send(command);
+            }
+            Log.Error("Erro: sem objecto");
             return NoContent();
         }
 
@@ -92,12 +106,17 @@ namespace Next.Steps.API.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> RemoveAsync(int id)
         {
+            if (id <= 0)
+            {
+                Log.Error("Id invalido: " + id);
+            }
             var command = new PersonRemoveCommand
             {
                 Id = id
             };
 
             await _mediator.Send(command);
+            Log.Information("Removido com sucesso.");
             return NotFound();
         }
 
@@ -117,6 +136,7 @@ namespace Next.Steps.API.Controllers
             };
 
             var response = await _mediator.Send(query);
+            Log.Information("Comando executado com sucesso.");
             return Ok(response);
         }
     }
