@@ -20,10 +20,13 @@ namespace Next.Steps.API.Controllers
         }
 
         /// <summary>
-        /// Get All Persons
+        /// Returns All Persons
         /// </summary>
-        /// <returns></returns>
+        /// <returns>All Persons</returns>
+        /// <response code="200">OK. Returns a list of all persons.</response>
+
         [HttpGet]
+        [ProducesResponseType(200)]
         [Route("GetAll")]
         public async Task<IActionResult> GetAllAsync()
         {
@@ -34,11 +37,23 @@ namespace Next.Steps.API.Controllers
         }
 
         /// <summary>
-        /// Get a Person by ID
+        /// Returns a Person by Id
         /// </summary>
-        /// <param name="id">1</param>
-        /// <returns></returns>
+        /// <param name="id">The Id of one Person</param>
+        /// <returns>Returns the attributes of a Person</returns>
+        /// <remarks>
+        /// Sample:
+        ///
+        ///     Get /Person/GetById/1
+        ///
+        /// </remarks>
+        /// <response code="200">OK. Returns a Person by specified ID.</response>
+        /// <response code="400">Bad request. Person ID must be an integer and bigger than 0.</response>
+        /// <response code="404">Not Found. Person with the specified ID was not found.</response>
         [HttpGet]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(404)]
         [Route("GetById/{id}")]
         public async Task<IActionResult> GetByIdAsync(int id)
         {
@@ -67,8 +82,15 @@ namespace Next.Steps.API.Controllers
         /// Create a Person
         /// </summary>
         /// <param name="p">Person</param>
-        /// <returns></returns>
+        /// <remarks>
+        /// Sample request:
+        ///
+        ///     Post /Person/Create
+        ///
+        /// </remarks>
+        /// <response code="200">Person created.</response>
         [HttpPost]
+        [ProducesResponseType(200)]
         [Route("Create")]
         public async Task<IActionResult> CreateAsync(PersonWriteDto p)
         {
@@ -86,11 +108,22 @@ namespace Next.Steps.API.Controllers
         }
 
         /// <summary>
-        /// Update a Person
+        /// Update a Person by specified ID
         /// </summary>
         /// <param name="obj"></param>
-        /// <returns></returns>
+        /// <remarks>
+        /// Sample request:
+        ///
+        ///     Put /Person/Update/1
+        ///
+        /// </remarks>
+        /// <response code="200">OK. Person Updated by specified ID.</response>
+        /// <response code="400">Bad request. Person ID must be an integer and bigger than 0.</response>
+        /// <response code="404">Not Found. Person with the specified ID was not found.</response>
         [HttpPut]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(404)]
         [Route("Update")]
         public async Task<IActionResult> UpdateAsync(PersonUpdateDto obj)
         {
@@ -108,11 +141,22 @@ namespace Next.Steps.API.Controllers
         }
 
         /// <summary>
-        /// Delete a Person
+        /// Delete a Person by specified ID
         /// </summary>
         /// <param name="id"></param>
-        /// <returns></returns>
+        /// <remarks>
+        /// Sample request:
+        ///
+        ///     Delete /Person/Delete/1
+        ///
+        /// </remarks>
+        /// <response code="200">OK. Person Deleted by specified ID.</response>
+        /// <response code="400">Bad request. Person ID must be an integer and bigger than 0.</response>
+        /// <response code="404">Not Found. Person with the specified ID was not found.</response>
         [HttpDelete]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(404)]
         [Route("Remove/{id}")]
         public async Task<IActionResult> RemoveAsync(int id)
         {
@@ -141,10 +185,22 @@ namespace Next.Steps.API.Controllers
         /// <summary>
         /// Search a Person by First Name or Last Name
         /// </summary>
-        /// <param name="firstName"></param>
-        /// <param name="lastName"></param>
-        /// <returns></returns>
-        [HttpGet("/Search")]
+        /// <param name="firstName">First name of the Person</param>
+        /// <param name="lastName">Last name of the Person</param>
+        /// <remarks>
+        /// Sample request:
+        ///
+        ///     Get /Person/Search?firstname=teste&amp;lastname=teste2
+        ///
+        /// </remarks>
+        /// <response code="200">OK. Person search sucess.</response>
+        /// <response code="400">Bad request. Person ID must be an integer and bigger than 0.</response>
+        /// <response code="404">Not Found. Person with the specified ID was not found.</response>
+        [HttpGet]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(404)]
+        [Route("Search")]
         public async Task<IActionResult> SearchAsync(string firstName, string lastName)
         {
             var query = new PersonSearchQuery
