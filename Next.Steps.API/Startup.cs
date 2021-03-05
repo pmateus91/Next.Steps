@@ -5,13 +5,16 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using Next.Steps.Application.Utils;
 using Next.Steps.Domain.Interfaces.Repositories;
 using Next.Steps.Domain.Interfaces.Services;
 using Next.Steps.Domain.Services;
 using Next.Steps.Infrastructure.Context;
+using Next.Steps.Infrastructure.Fake;
 using Next.Steps.Infrastructure.Repository;
+using Serilog;
 using System;
 using System.IO;
 using System.Reflection;
@@ -37,6 +40,9 @@ namespace Next.Steps.API
                 (options => options.UseSqlServer(connection));
 
             services.AddScoped(typeof(IRepositoryPerson), typeof(PersonRepository));
+
+            //services.AddSingleton(typeof(IRepositoryPerson), typeof(FakeRepository));
+
             services.AddScoped(typeof(IServicePerson), typeof(PersonService));
 
             services.AddMvc();
@@ -67,8 +73,10 @@ namespace Next.Steps.API
 
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "NextSteps");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "swagger");
             });
+
+            app.UseSerilogRequestLogging();
 
             app.UseHttpsRedirection();
 

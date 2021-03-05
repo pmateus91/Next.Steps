@@ -7,7 +7,7 @@ services:
    ports:
     - 9200:9200
    volumes:
-    - ./elasticsearch-volume:/usr/share/elasticsearch/data
+    - elasticsearch-data:/usr/share/elasticsearch/data
    environment:
     - xpack.monitoring.enabled=true
     - xpack.watcher.enabled=false
@@ -35,15 +35,19 @@ services:
     MSSQL_PID: 'Developer'
    ports:
     - '5000:1433'
-  
+
   nextsteps:
    container_name: nextstepsAPI
    build: .
    restart: always
    environment:
-    ConnectionString: 'Server=ms-sql-server;Database=NextSteps;User=sa;Password=Password123'
+    ConnectionString: Server=ms-sql-server;Database=NextSteps;User=sa;Password=Password123
+    Serilog: WriteTo:0:Args:nodeUris=http://elasticsearch:9200
    ports:
     - '8080:80'
    depends_on: 
     - ms-sql-server
     - elasticsearch
+
+volumes:
+  elasticsearch-data:

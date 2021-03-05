@@ -19,8 +19,9 @@ namespace Next.Steps.API
         public static void Main(string[] args)
         {
             Log.Logger = new LoggerConfiguration()
-                   .ReadFrom.Configuration(Configuration)
-                   .CreateLogger();
+                .Enrich.FromLogContext()
+                .ReadFrom.Configuration(Configuration)
+                .CreateLogger();
 
             CreateHostBuilder(args).Build().Run();
 
@@ -29,10 +30,10 @@ namespace Next.Steps.API
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
-                .UseSerilog()
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
-                });
+                })
+                .UseSerilog();
     }
 }
